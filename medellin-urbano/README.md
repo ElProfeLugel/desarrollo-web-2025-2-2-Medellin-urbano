@@ -1,59 +1,82 @@
-# MedellinUrbano
+﻿# Medellín Urbano  Examen Final (Angular 20)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.5.
+SPA colaborativa para descubrir, crear y reseñar eventos en Medellín. 7 parejas trabajan en funcionalidades interdependientes pero modularizadas.
 
-## Development server
+## Cómo correr el proyecto
 
-To start a local development server, run:
+`ash
+npm install
+npm start
+`
 
-```bash
-ng serve
-```
+- URL por defecto: http://localhost:4200
+- No hay backend real; todos los servicios simulan datos
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Estructura esperada (sugerida)
 
-## Code scaffolding
+`
+src/app/
+  core/                 # Guards, interceptors, utilidades core (a crear por parejas)
+  auth/                 # Login/Registro (Pareja 1)
+    pages/
+    services/
+  events/               # Listado, detalle, crear/editar, eliminar (Parejas 35)
+    pages/
+    services/
+  profile/              # Perfil (Pareja 7)
+    pages/
+    services/
+  shared/               # Componentes reutilizables (Navbar, tarjetas, etc.)
+    components/
+    models/             # Modelos actuales (pueden reubicarse según decisión)
+`
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+> Importante: No hemos generado scaffolding de código para dejar el trabajo del examen intacto. Solo existen los modelos base y estas instrucciones.
 
-```bash
-ng generate component component-name
-```
+## Reglas generales
+- Angular 20 + TypeScript. CSS por componente.
+- Sin librerías externas de UI/estado.
+- Token JWT simulado en Local Storage.
+- Servicios con datos en arreglos.
+- Guards para rutas protegidas.
+- Código legible, nombres expresivos, separación de responsabilidades.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Parejas y alcance resumido (¿a quién preguntar?)
 
-```bash
-ng generate --help
-```
+- **Pareja 1  Autenticación (Login/Registro)**: Formularios reactivos, validaciones, AuthService (login/logout/isAuthenticated), token en Local Storage. Rutas públicas /login, /registro.
+  - Consultas sobre: estado de autenticación, contrato de AuthService.
 
-## Building
+- **Pareja 2  Rutas protegidas, Guard y Navbar**: AuthGuard (CanActivate), redirección a /login, rutas protegidas (/crear-evento, /editar-evento/:id, /perfil), Navbar con enlaces condicionales y logout.
+  - Consultas sobre: navegación, protección de rutas, visibilidad en Navbar.
 
-To build the project run:
+- **Pareja 3  Eventos: Listado (Dashboard público)**: EventService.getEvents(), *ngFor de tarjetas, navegación a /evento/:id.
+  - Consultas sobre: estructura mínima de tarjeta, estados de carga/vacío.
 
-```bash
-ng build
-```
+- **Pareja 4  Eventos: Crear/Editar**: Formulario reactivo único; crear (/crear-evento) y editar (/editar-evento/:id) usando ActivatedRoute y EventService (dd/getById/update).
+  - Consultas sobre: validaciones, uso de creatorId del usuario autenticado.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+- **Pareja 5  Evento: Detalle y Eliminar**: EventService.getEventById, botón eliminar visible solo para creador, redirección a /eventos.
+  - Consultas sobre: visibilidad de acciones por autoría, contrato deleteEvent.
 
-## Running unit tests
+- **Pareja 6  Reseñas (anidado en detalle)**: Lista de reseñas del evento, formulario para rating (15) y comentario; ReviewService.addReview(eventId, reseña); comunicación con detalle.
+  - Consultas sobre: contrato de ReviewService, comunicación @Input/@Output.
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+- **Pareja 7  Perfil de Usuario**: UserService.getCurrentUser(), EventService.getEventsByUserId, (opcional) edición de 
+ame/email.
+  - Consultas sobre: datos del usuario actual, filtrado por userId.
 
-```bash
-ng test
-```
+## Rutas sugeridas
+- Públicas: /eventos, /evento/:id, /login, /registro (opcional).
+- Protegidas: /crear-evento, /editar-evento/:id, /perfil.
 
-## Running end-to-end tests
+## Contratos de datos mínimos
+- User { id, name, email, avatarUrl? }
+- Event { id, title, description, date (ISO), location, imageUrl?, creatorId }
+- Review { id, eventId, authorId, rating (1-5), comment, createdAt (ISO) }
+- Credentials { email, password }
+- AuthToken { token, userId, issuedAt, expiresAt }
 
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Comunicación y coordinación
+- Acordar contratos entre parejas antes de implementar.
+- Mantener un README por pareja en instrucciones/ con decisiones y supuestos.
+- Uso recomendado de ramas por pareja y PRs para integración.
