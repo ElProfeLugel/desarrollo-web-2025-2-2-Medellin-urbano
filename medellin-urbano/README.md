@@ -80,3 +80,10 @@ ame/email.
 - Acordar contratos entre parejas antes de implementar.
 - Mantener un README por pareja en instrucciones/ con decisiones y supuestos.
 - Uso recomendado de ramas por pareja y PRs para integración.
+
+## Commit asistido
+- Método multiplataforma (Node):
+  - `npm run commit:asistido` o alias corto `npm run c:a`.
+  - Requiere Node 18+.
+
+Convención de ramas: `pareja-01` … `pareja-07`. Desde `main`, los scripts crearán/seleccionarán automáticamente tu rama.
