@@ -4,7 +4,7 @@ SPA colaborativa para descubrir, crear y reseñar eventos en Medellín. 7 pareja
 
 ## Cómo correr el proyecto
 
-`ash
+`bash
 npm install
 npm start
 `
@@ -52,7 +52,7 @@ src/app/
 - **Pareja 3  Eventos: Listado (Dashboard público)**: EventService.getEvents(), *ngFor de tarjetas, navegación a /evento/:id.
   - Consultas sobre: estructura mínima de tarjeta, estados de carga/vacío.
 
-- **Pareja 4  Eventos: Crear/Editar**: Formulario reactivo único; crear (/crear-evento) y editar (/editar-evento/:id) usando ActivatedRoute y EventService (dd/getById/update).
+- **Pareja 4  Eventos: Crear/Editar**: Formulario reactivo único; crear (/crear-evento) y editar (/editar-evento/:id) usando ActivatedRoute y EventService (add/getById/update).
   - Consultas sobre: validaciones, uso de creatorId del usuario autenticado.
 
 - **Pareja 5  Evento: Detalle y Eliminar**: EventService.getEventById, botón eliminar visible solo para creador, redirección a /eventos.

@@ -15,7 +15,7 @@ gOnInit consulta EventService.getEvents().
 
 ## Conceptos clave
 - Componentes, Servicios, DI, Ciclo de vida (
-gOnInit), *ngFor, ruteo.
+gOnInit), @For, ruteo.
 
 ## Criterios de aceptación
 - La vista /eventos lista eventos con al menos: título, fecha (ISO a legible) y ubicación.

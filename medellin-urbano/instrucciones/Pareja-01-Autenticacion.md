@@ -1,7 +1,7 @@
 ﻿# Medellín Urbano  Pareja 1: Autenticación (Login y Registro)
 
 ## Objetivo
-Habilitar el acceso de usuarios al sistema mediante login y, opcionalmente, registro, gestionando un token (JWT falso) en Local Storage.
+Habilitar el acceso de usuarios al sistema mediante login y registro, gestionando un token (JWT falso) en Local Storage.
 
 ## Alcance
 - Implementar formulario de Login con Formularios Reactivos.

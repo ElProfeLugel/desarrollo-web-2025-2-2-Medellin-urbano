@@ -14,7 +14,7 @@ Asegurar navegación segura mediante un Guard y una barra de navegación que ref
 - Sin librerías externas. CSS por componente.
 
 ## Conceptos clave
-- Router (Routes, outerLink/navegación), Guards (CanActivate), DI, directivas estructurales *ngIf.
+- Router (Routes, routerLink/navegación), Guards (CanActivate), DI, directivas estructurales @If.
 
 ## Criterios de aceptación
 - Guard funcional aplicado a: /crear-evento, /editar-evento/:id, /perfil.
@@ -22,13 +22,13 @@ Asegurar navegación segura mediante un Guard y una barra de navegación que ref
 - Navbar visible en layout principal con enlaces:
   - Siempre: Eventos.
   - Si autenticado: Crear Evento, Perfil, Cerrar sesión.
-  - Si NO autenticado: Login (y Registro si existe).
+  - Si NO autenticado: Login.
 - El botón  Cerrar sesión llama a logout() y redirige a /login.
 
 ## Rutas y contratos
-- Rutas públicas: /eventos, /login, /registro (si existe), /evento/:id (si se decide público).
+- Rutas públicas: /eventos, /login, /registro, /evento/:id.
 - Rutas protegidas: /crear-evento, /editar-evento/:id, /perfil.
 
 ## Integración
 - Depende de Pareja 1 (AuthService).
-- Afecta navegación hacia componentes de Parejas 37.
+- Afecta navegación hacia componentes de Parejas 3 y 7.

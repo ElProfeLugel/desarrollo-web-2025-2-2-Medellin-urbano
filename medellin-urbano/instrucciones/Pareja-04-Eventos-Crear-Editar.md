@@ -4,13 +4,14 @@
 Permitir a usuarios autenticados crear nuevos eventos y editar existentes usando un único formulario reactivo.
 
 ## Alcance
-- Formulario reactivo con campos: 	itle, description, date, location, imageUrl.
+- Formulario reactivo con campos: title, description, date, location, imageUrl.
 - Crear: llamar EventService.addEvent() sin id en la ruta.
 - Editar: cargar EventService.getEventById(id) y patchValue; al enviar, EventService.updateEvent().
 
 ## Restricciones
 - Rutas protegidas por el Guard (Pareja 2).
-- Validaciones: equired, minLength donde aplique.
+- Validaciones: 
+equired, minLength donde aplique.
 - Sin librerías externas. CSS por componente.
 
 ## Conceptos clave
@@ -25,9 +26,9 @@ Permitir a usuarios autenticados crear nuevos eventos y editar existentes usando
 ## Rutas y contratos
 - Protegidas: /crear-evento, /editar-evento/:id.
 - EventService esperado:
-  - ddEvent(event: Event): Observable<Event>
-  - getEventById(id: string): Observable<Event>
-  - updateEvent(event: Event): Observable<Event>
+  - addEvent(event: Event): Event
+  - getEventById(id: string): Event
+  - updateEvent(event: Event): Event
 
 ## Integración
 - Usa AuthService (userId) y Guard (Pareja 2).

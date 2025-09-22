@@ -13,7 +13,7 @@ Mostrar información completa de un evento y permitir su eliminación cuando el 
 - El detalle puede ser público; la acción de eliminar es solo para el creador autenticado.
 
 ## Conceptos clave
-- Componentes, Rutas con parámetros, Servicios, *ngIf, Comunicación con componentes hijos (opcional para reseñas).
+- Componentes, Rutas con parámetros, Servicios, @If, Comunicación con componentes hijos (opcional para reseñas).
 
 ## Criterios de aceptación
 - /evento/:id muestra el detalle.
@@ -22,7 +22,7 @@ Mostrar información completa de un evento y permitir su eliminación cuando el 
 
 ## Rutas y contratos
 - Ruta: /evento/:id (pública o protegida según acuerdo de la clase).
-- EventService.deleteEvent(id: string): Observable<void>.
+- EventService.deleteEvent(id: string): void.
 
 ## Integración
 - Depende de AuthService (userId) para verificar autoría.

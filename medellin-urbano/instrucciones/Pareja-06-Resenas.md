@@ -10,22 +10,22 @@ Permitir a usuarios autenticados crear reseñas (rating + comment) dentro de la 
 
 ## Restricciones
 - Sin librerías externas. CSS por componente.
-- Datos simulados; reseñas asociadas por eventId y uthorId (usuario actual).
+- Datos simulados; reseñas asociadas por eventId y authorId (usuario actual).
 
 ## Conceptos clave
-- Componentes hijos, @Input/@Output o servicio compartido, Formularios Reactivos, Validaciones, *ngFor, *ngIf.
+- Componentes hijos, @Input/@Output o servicio compartido, Formularios Reactivos, Validaciones, @For, @If.
 
 ## Criterios de aceptación
 - Lista de reseñas visible en el detalle del evento, ordenadas por createdAt (desc).
-- Formulario con ating (15) y comment (required, minLength) visible solo autenticado.
+- Formulario con rating (5) y comment (required, minLength) visible solo autenticado.
 - ReviewService.addReview(eventId, review) agrega y refleja en la UI.
 
 ## Rutas y contratos
 - Vive dentro de /evento/:id.
 - Review: { id, eventId, authorId, rating, comment, createdAt }.
 - ReviewService esperado:
-  - getByEventId(eventId: string): Observable<Review[]>
-  - ddReview(eventId: string, review: Omit<Review,'id'|'createdAt'|'eventId'|'authorId'>): Observable<Review>
+  - getByEventId(eventId: string): Review[]
+  - addReview(eventId: string, review: Omit<Review,'id'|'createdAt'|'eventId'|'authorId'>): Review
 
 ## Integración
-- Se renderiza en el detalle (Pareja 5). Usa AuthService para uthorId.
+- Se renderiza en el detalle (Pareja 5). Usa AuthService para authorId.
